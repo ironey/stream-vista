@@ -1,0 +1,60 @@
+@startuml Architecture
+skinparam backgroundColor transparent
+
+cloud "Data Sources" as sources {
+    [IoT Devices] as iot
+    [Web Events] as web
+    [System Logs] as logs
+}
+
+package "Stream Vista" {
+    package "Ingestion Layer" as ingestion {
+        [Kafka Cluster] as kafka
+        [Event Router] as router
+    }
+    
+    package "Processing Layer" as processing {
+        queue "Stream Processors" as processors {
+            [Processor 1] as p1
+            [Processor 2] as p2
+            [Processor 3] as p3
+        }
+        
+        package "State Management" as state {
+            database "Redis" as redis
+        }
+    }
+    
+    package "Analytics Layer" as analytics {
+        [Real-time Analytics] as realtime
+        [Aggregations] as aggs
+        database "Time Series DB" as tsdb
+    }
+    
+    package "Dashboard" as dashboard {
+        [Grafana] as grafana
+        [Metrics] as metrics
+    }
+}
+
+sources --> ingestion
+kafka --> processors
+processors --> state
+processors --> analytics
+analytics --> dashboard
+
+note right of ingestion
+  Scalable event ingestion
+  with Kafka
+end note
+
+note bottom of processing
+  Stateful stream processing
+  with Redis backend
+end note
+
+note right of analytics
+  Real-time analytics and
+  visualization
+end note
+@enduml
