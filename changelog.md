@@ -6,3 +6,5 @@ feat: Implement error handling
 feat: Add logging system
 // Updated: 2017-08-15T10:00:00
 feat: Implement data validation
+// Updated: 2017-09-15T10:00:00
+feat: Add unit tests
