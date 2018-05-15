@@ -22,3 +22,5 @@ feat: Implement caching system
 feat: Add security features
 // Updated: 2018-04-15T10:00:00
 feat: Optimize database queries
+// Updated: 2018-05-15T10:00:00
+feat: Add support for new data formats
