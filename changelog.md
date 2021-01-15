@@ -86,3 +86,5 @@ feat: Implement error handling
 feat: Add logging system
 // Updated: 2020-12-15T10:00:00
 feat: Implement data validation
+// Updated: 2021-01-15T10:00:00
+feat: Add unit tests
